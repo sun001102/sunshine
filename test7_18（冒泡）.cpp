@@ -1,12 +1,8 @@
 #include <stdio.h>
-int main()
+void bubble_sort(int arr[], int sz)
 {
-	int arr[10]={9,2,4,5,8,1,3,6,7,10};
-	//int i = 0;//趟数
 	int i = 0;
-	
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	for (i = 0;i < sz - 1;i++)//趟数
+	for (i = 0; i < sz - 1; i++)//趟数
 	{
 		//每一趟
 		int j = 0;
@@ -20,6 +16,14 @@ int main()
 			}
 		}
 	}
+}
+int main()
+{
+	int arr[10]={9,2,4,5,8,1,3,6,7,10};
+	//int i = 0;//趟数
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	bubble_sort(arr, sz);
 	for (i = 0; i < 10; i++)
 	{
 		printf("%d ", arr[i]);
