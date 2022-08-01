@@ -6,8 +6,6 @@ void move_odd_even(int arr[], int sz)
 	int right = sz - 1;
 	while (left < right)
 	{
-		while (left < right)
-		{
 			//从左向右找奇数
 			while ((left<right)&& arr[left] % 2 == 1)//防止越界(若为全奇数一直循环 越界）
 			{
@@ -27,7 +25,6 @@ void move_odd_even(int arr[], int sz)
 				left++;
 				right--;
 			}
-		}
 	}
 }
 int main()
