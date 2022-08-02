@@ -66,16 +66,21 @@
 struct Stu
 {
 	char name[20];
-	int age = 0;
+	int age;//结构体不能初始化
 };
 int cmp_stu_by_name(const void* e1, const void* e2)
 {
 	return strcmp(((struct Stu*)e1)->name,((struct Stu*)e2)->name);
 }
+int cmp_stu_by_age(const void* e1, const void* e2)//年龄可以直接相减
+{
+	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//??为啥结果是降序？
+}
 int main()
 {
-	struct Stu s[] = { {"zhangsan,15"},{"lisi,30"},{"wangwu,20"} };
+	struct Stu s[] = { {"zhangsan",15},{"lisi",30},{"wangwu",20} };
 	int sz = sizeof(s) / sizeof(s[0]);
-	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);//按照名字排序
+	//qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);//按照名字排序
+	qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);//按照年龄比较
 	return 0;
 }
