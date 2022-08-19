@@ -1,33 +1,56 @@
-#define  _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-int main()
-{//输入
-	int n = 0;
-	int m = 0;
-	scanf("%d %d", &n,&m);
-	//计算  1最大公约数与2最小公倍数之和3
-	//1 	int i = (n > m ? n : m);//判断输入两数中的最大值24 18   6
-	int r = 0;
-	int i = (n > m ? n : m);//判断输入两数中的最大值
-	while (n % m)
-	{
-		r = n %m;//6
-		n = m;//n=18
-		m = r;//m=6;
-	}
-	int sum1 = m;
-	//2.最小公倍数
-    //int i=(n > m ? n: m);//判断输入两数中的最大值
-	while (1)
-	{
-			if (i % n == 0 && i % m == 0)
-			{
-				break;
-			}
-			i++;
-	}
-	int sum2 = i;
-	int sum = sum1 + sum2;
-	printf("%d ", sum);
-	return 0;
-}
+//版本1:试除法
+//#define  _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//int main()
+//{
+//	int n = 0;
+//	int m = 0;
+//	while (scanf("%d%d", &n, &m) == 2)//多组输入
+//	{
+//		int min = (n < m) ? n : m;
+//		int max = (n > m) ? n : m;
+//		int i = min;
+//		int j = max;
+//		while (1)
+//		{
+//			if (n % i == 0 && m % i == 0)
+//			{
+//				break;
+//		    }
+//			i--;
+//		}
+//		//i就是最大公约数
+//		while (1)
+//		{
+//			if (j % n == 0 && j % m == 0)
+//			{
+//				break;
+//			}
+//			j++;
+//			//j就是最小公倍数
+//		}
+//		printf("%d", i + j);
+//	}
+//	return 0;
+//}
+//版本2
+//#define  _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//int main()
+//{
+//	int n = 0;
+//	int m = 0;
+//	while (scanf("%d%d", &n, &m) == 2)
+//	{
+//		int i = n;
+//		int j = m;
+//		int r = 0;
+//		while (r = i % j)//辗转相除法
+//		{
+//			i = j;
+//			j = r;
+//		}//j就是最大公约数
+//		printf("%d", n * m / j + j);//最小公倍数=n*m/j
+//	}
+//	return 0;
+//}
